@@ -369,7 +369,7 @@ function recalcInterval(newSpeed) {
 function buyTickSpeed() {
     if(bonuses.availableEP >= getTickSpeedCost() && bonuses.tickSpeedLevel < 5) {
 		bonuses.availableEP -= getTickSpeedCost();
-		recalcInterval(bonuses.tickSpeedLevel + .5);
+		recalcInterval(bonuses.tickSpeedLevel + .2);
     }
     theView.updateUpgrade();
 }
@@ -378,7 +378,7 @@ function getTickSpeedCost(tickSpeedLevel) {
     if(tickSpeedLevel === undefined) {
         tickSpeedLevel = bonuses.tickSpeedLevel;
     }
-    return precision2(5 * Math.pow(3, (tickSpeedLevel - 1)*3));
+    return precision2(50 * Math.pow(5, (tickSpeedLevel - 1)*5));
 }
 
 function setTransferRate(newRate) {
@@ -400,7 +400,7 @@ function getTransferRateCost(transferRateLevel) {
     if(transferRateLevel === undefined) {
         transferRateLevel = bonuses.transferRateLevel;
     }
-    return precision2(2 * Math.pow(3, (transferRateLevel - 1)));
+    return precision2(15 * Math.pow(4, (transferRateLevel - 1)));
 }
 
 function buyDiscountLevel() {
@@ -415,7 +415,7 @@ function buyDiscountLevel() {
 }
 
 function getCostReduction(discountLevel) {
-    return Math.pow(1.01, discountLevel)*3 - 4;
+    return Math.pow(1.01, discountLevel)*5 - 4;
 }
 
 function getDiscountCost(discountLevel) {
